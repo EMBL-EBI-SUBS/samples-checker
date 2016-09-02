@@ -17,8 +17,16 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <jvmArguments>-Xmx8024m</jvmArguments>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -30,11 +38,25 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-classic</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-solr</artifactId>
         </dependency>
+        <dependency>
+            <groupId>uk.ac.ebi.subs</groupId>
+            <artifactId>subs-validation</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
+
+
 
 </project>
